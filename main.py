@@ -11,7 +11,7 @@ pipe = [
   { '$addFields': {
     "n": "$input.n",
     "reqPerSecond": "$output.Requests per second.value",
-    "non2xxRes": "$output.Non-2xx responses.value"
+    "non2xxRes": { "$ifNull": ["$output.Non-2xx responses.value", 0] }
   } },
   { '$project': { "_id": 0, "n": 1, "reqPerSecond": 1, "non2xxRes": 1 } }
 ]
