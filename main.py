@@ -13,7 +13,7 @@ pipe = [
     "reqPerSecond": "$output.Requests per second.value",
     "non2xxRes": "$output.Non-2xx responses.value"
   } },
-  { '$project': { "_id": 0, "n": 1, "reqPerSecond": 1, "non2xx": 1 } }
+  { '$project': { "_id": 0, "n": 1, "reqPerSecond": 1, "non2xxRes": 1 } }
 ]
 
 data = list(collection.aggregate(pipe))
